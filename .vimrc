@@ -13,10 +13,13 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-
 " Fuzzy file finder
 Plugin 'kien/ctrlp.vim'
 
+
+" Ruby/Rails specific plugins
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,6 +58,17 @@ set number
 " Show relative line numbers
 set relativenumber
 
+" Syntax highlighting
+syntax on
+filetype plugin indent on
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Ruby Configurations
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+autocmd FileType eruby setlocal expandtab shiftwidth=2 tabstop=2
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
