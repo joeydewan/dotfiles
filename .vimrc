@@ -13,9 +13,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Fuzzy file finder
-Plugin 'kien/ctrlp.vim'
-
+" File explorer
+Plugin 'preservim/nerdtree'
+" open/close nerdtree window
+map - :NERDTreeToggle<CR>
 
 " Ruby/Rails specific plugins
 Plugin 'tpope/vim-rails'
@@ -31,8 +32,16 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Enable fzf for fuzzy file searching
+set rtp+=/usr/local/opt/fzf
+nnoremap <silent> <C-p> :FZF<CR>
+
 " Sets how many lines of history VIM has to remember
 set history=500
+
+" Open vertical split files to the right
+set splitright
 
 " Enable filetype plugins
 filetype plugin on
@@ -48,6 +57,7 @@ let mapleader = " "
 
 " Fast saving
 nmap <leader>w :w!<cr>
+nmap <leader>q :q<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
