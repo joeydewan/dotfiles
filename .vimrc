@@ -18,6 +18,12 @@ Plugin 'preservim/nerdtree'
 " open/close nerdtree window
 map - :NERDTreeToggle<CR>
 
+" Text searching with ack
+Plugin 'mileszs/ack.vim'
+
+" Easy block commenting
+Plugin 'tpope/vim-commentary'
+
 " Ruby/Rails specific plugins
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
@@ -36,6 +42,12 @@ filetype plugin indent on    " required
 " Enable fzf for fuzzy file searching
 set rtp+=/usr/local/opt/fzf
 nnoremap <silent> <C-p> :FZF<CR>
+
+" Navigate to existing open tab if file matches
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab drop',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -71,6 +83,9 @@ set relativenumber
 " Syntax highlighting
 syntax on
 filetype plugin indent on
+
+" Disable swap files
+set noswapfile
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
