@@ -28,6 +28,9 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 
+" Note taking
+Plugin 'vimwiki/vimwiki'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -36,7 +39,7 @@ filetype plugin indent on    " required
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
+" => File/Code Searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable fzf for fuzzy file searching
@@ -48,6 +51,20 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab drop',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
+
+" Ignore these directories when searching with vimgrep
+set wildignore+=tmp/**,log/**
+
+" Use ag with ack for searching code
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" Highlight all occurrences of search
+set hlsearch
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Sets how many lines of history VIM has to remember
 set history=500
