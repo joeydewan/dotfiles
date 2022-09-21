@@ -46,6 +46,10 @@ filetype plugin indent on    " required
 set rtp+=/usr/local/opt/fzf
 nnoremap <silent> <C-p> :FZF<CR>
 
+" Use markdown for vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
 " Navigate to existing open tab if file matches
 let g:fzf_action = {
   \ 'ctrl-t': 'tab drop',
@@ -75,6 +79,9 @@ set splitright
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
+
+" generate diary page from template
+au BufNewFile ~/vimwiki/diary/*.md :silent 0r !~/vimwiki/bin/generate-vimwiki-diary-template '%'
 
 " Set to auto read when a file is changed from the outside
 set autoread
